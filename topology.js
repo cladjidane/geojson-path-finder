@@ -3,6 +3,11 @@
 var explode = require('@turf/explode'),
     roundCoord = require('./round-coord');
 
+if (typeof explode !== 'function' && explode.default && typeof explode.default === 'function') {
+    explode = explode.default;
+}
+
+
 module.exports = topology;
 
 function geoJsonReduce(geojson, fn, seed) {
